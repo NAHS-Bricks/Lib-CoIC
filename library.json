@@ -1,0 +1,30 @@
+{
+  "name": "NAHS-Bricks-Lib-CoIC",
+  "version": "1.0.0",
+  "description": "Interfaceing functions for NAHS-Bricks-CoIC",
+  "keywords": "NAHS-Bricks, interface, IO-Expander",
+  "repository":
+  {
+    "type": "git",
+    "url": "git@github.com:NAHS-Bricks/Lib-CoIC.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Nils Ost",
+      "email": "home@nijos.de",
+      "url": "https://nijos.de",
+      "maintainer": true
+    }
+  ],
+  "exclude": [
+    ".gitignore"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "https://bricks.nijos.de/",
+  "dependencies": {
+  },
+  "frameworks": "*",
+  "platforms": "*",
+  "examples": "examples/*/*.ino"
+}
