@@ -1,6 +1,6 @@
 {
   "name": "NAHS-Bricks-Lib-CoIC",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Interfaceing functions for NAHS-Bricks-CoIC",
   "keywords": "NAHS-Bricks, interface, IO-Expander",
   "repository":

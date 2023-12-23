@@ -232,12 +232,21 @@ void NahsBricksLibCoIC_Expander::disableInvert(uint8_t expander) {
   setDate(CMD::EX_INVERT, inv);
 }
 
+uint8_t NahsBricksLibCoIC_Expander::getOutputs() {
+  if (!_outputs_read) {
+    _outputs = getDate(CMD::EX_OUTPUT);
+    _outputs_read = true;
+  }
+  return _outputs;
+}
+
 void NahsBricksLibCoIC_Expander::writeOutput(uint8_t expander, bool state) {
   if (expander >= _expander_count) return;
-  uint8_t out = getDate(CMD::EX_OUTPUT);
+  uint8_t out = getOutputs();
   if (state) out |= (1<<expander);
   else out &= ~(1<<expander);
   setDate(CMD::EX_OUTPUT, out);
+  _outputs = out;
 }
 
 void NahsBricksLibCoIC_Expander::writeOutput(uint8_t expander, uint8_t state) {
@@ -246,13 +255,15 @@ void NahsBricksLibCoIC_Expander::writeOutput(uint8_t expander, uint8_t state) {
 
 void NahsBricksLibCoIC_Expander::writeOutputs(uint8_t states) {
   setDate(CMD::EX_OUTPUT, states);
+  _outputs = states;
 }
 
 void NahsBricksLibCoIC_Expander::toggleOutput(uint8_t expander) {
   if (expander >= _expander_count) return;
-  uint8_t out = getDate(CMD::EX_OUTPUT);
+  uint8_t out = getOutputs();
   out ^= (1<<expander);
   setDate(CMD::EX_OUTPUT, out);
+  _outputs = out;
 }
 
 uint8_t NahsBricksLibCoIC_Expander::readInput(uint8_t expander) {
